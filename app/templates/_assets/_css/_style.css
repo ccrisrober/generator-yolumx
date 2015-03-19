@@ -1,0 +1,9 @@
+.main-content {
+  padding: 24px;
+}
+.main-content h1 {
+  text-align: center;
+}
+[flex-item] {
+  padding: 15px;
+}

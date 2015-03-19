@@ -1,6 +1,16 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "bower-yeoman-lumx",
+  "version": "1.0.0",
+  "authors": [
+    "maldicion069 <ccrisrober@gmail.com>"
+  ],
+  "description": "Bower from Lumx Project",
+  "keywords": [
+    "Yeoman",
+    "Lumx"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lumx": "~0.3.24"
+  }
 }
-

@@ -1,5 +1,22 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "generator-yolumx",
+  "version": "1.0.0",
+  "description": "LumX Yeoman Generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maldicion069/generator-yolumx.git"
+  },
+  "files": ["app"],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "maldicion069",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maldicion069/generator-yolumx/issues"
+  },
+  "homepage": "https://github.com/maldicion069/generator-yolumx",
+  "dependencies": {
+    "yeoman-generator": "^0.18.10"
+  }
 }

@@ -17,19 +17,25 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      name: 'appName',
+      message: 'Enter your project name?',
+      default: "LumX Project"
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.appName = props.appName;
 
       done();
     }.bind(this));
   },
-
+  createFolders: function() {
+    this.mkdir("app");
+    this.mkdir("app/assets");
+    this.mkdir("app/assets/js");
+    this.mkdir("app/assets/css");
+    this.mkdir("app/assets/img");
+    //this.mkdir("gulp");
+  },
   writing: {
     app: function () {
       this.fs.copy(
@@ -51,6 +57,21 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc')
       );
+    },
+
+    others: function() {
+      this.copy("_assets/_js/_app.js",      "app/assets/js/app.js");
+      this.copy("_assets/_css/_style.css",  "app/assets/css/style.css");
+      this.copy("_assets/_img/_gnr.jpg",    "app/assets/img/gnr.jpg");
+      this.copy("_assets/_img/_gr.jpg",     "app/assets/img/gr.jpg");
+      this.copy("_assets/_img/_im.jpg",     "app/assets/img/im.jpg");
+      this.copy("_assets/_img/_mg.jpg",     "app/assets/img/mg.jpg");
+      this.copy("_assets/_img/_mn.jpg",     "app/assets/img/mn.jpg");
+      var context = {
+        title: this.appName
+      };
+
+      this.template("_index.html", "app/index.html", context);
     }
   },
 

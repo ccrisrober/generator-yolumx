@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es" data-ng-app="app">
+  <head>
+		<title><%= title %></title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bower_components/lumx/dist/lumx.css">
+    <link rel="stylesheet" href="../bower_components/mdi/css/materialdesignicons.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+  </head>
+  <body>
+
+    <div class="card">
+        <div class="toolbar">
+            <div class="toolbar__left mr+++">
+                <button class="btn btn--l btn--black btn--icon" lx-ripple>
+                    <i class="mdi mdi-menu"></i>
+                </button>
+            </div>
+
+            <span class="toolbar__label fs-title"><%= title %></span>
+
+            <div class="toolbar__right">
+                <lx-search-filter closed theme="light"></lx-search-filter>
+
+                <lx-dropdown position="right" from-top>
+                    <button class="btn btn--l btn--black btn--icon" lx-ripple lx-dropdown-toggle>
+                        <i class="mdi mdi-dots-vertical"></i>
+                    </button>
+
+                    <lx-dropdown-menu>
+                        <ul>
+                            <li><a class="dropdown-link">Action</a></li>
+                            <li><a class="dropdown-link">Another action</a></li>
+                            <li><a class="dropdown-link">Something else here</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-link dropdown-link--is-header">Header</a></li>
+                            <li><a class="dropdown-link">Separated link</a></li>
+                        </ul>
+                    </lx-dropdown-menu>
+                </lx-dropdown>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1><%= title %></h1>
+        <div class="card">
+        <lx-tabs>
+            <lx-tab heading="Form">
+              <div class="bgc-grey-800 mt++ p++ pt0">
+
+    <div class="mt++" flex-container="row" flex-gutter="24">
+        <div flex-item>
+            <form>
+                <lx-text-field label="First and last name" fixed-label="true" icon="account" theme="dark">
+                    <input type="text" ng-model="textFields.fixedFirstNameDark">
+                </lx-text-field>
+
+                <lx-text-field label="Phone number" fixed-label="true" icon="phone" theme="dark">
+                    <input type="text" ng-model="textFields.fixedLastNameDark">
+                </lx-text-field>
+
+                <lx-text-field label="Email address" fixed-label="true" icon="email" theme="dark">
+                    <input type="email" ng-model="textFields.fixedEmailDark">
+                </lx-text-field>
+
+                <lx-text-field label="Location" fixed-label="true" icon="city" theme="dark">
+                    <input type="text" ng-model="textFields.fixedAdressDark">
+                </lx-text-field>
+            </form>
+        </div>
+
+        <div flex-item>
+            <form>
+                <lx-text-field label="First name" fixed-label="true" theme="dark">
+                    <input type="text" ng-model="textFields.fixedFirstName2Dark">
+                </lx-text-field>
+
+                <lx-text-field label="Last name" fixed-label="true" theme="dark">
+                    <input type="text" ng-model="textFields.fixedLastName2Dark">
+                </lx-text-field>
+
+                <lx-text-field label="Email" fixed-label="true" theme="dark">
+                    <input type="email" ng-model="textFields.fixedEmail2Dark">
+                </lx-text-field>
+
+                <lx-text-field label="Address" fixed-label="true" theme="dark">
+                    <input type="text" ng-model="textFields.fixedAdress2Dark">
+                </lx-text-field>
+            </form>
+        </div>
+    </div>
+</div>
+            </lx-tab>
+
+            <lx-tab heading="List">
+              <div class="mt++" flex-container="row" flex-gutter="12">
+                <div flex-item>
+                  <span class="fs-title display-block mb">Icon with text</span>
+
+                  <div class="divider divider--dark"></div>
+
+                  <ul class="list mt++">
+                      <li class="list-row list-row--has-separator">
+                          <div class="list-row__primary">
+                              <i class="icon icon--s icon--grey icon--flat mdi mdi-send"></i>
+                          </div>
+
+                          <div class="list-row__content">
+                              <span>Single-line item</span>
+                          </div>
+                      </li>
+                      <li class="list-row list-row--has-separator">
+                          <div class="list-row__primary">
+                              <i class="icon icon--s icon--grey icon--flat mdi mdi-pencil"></i>
+                          </div>
+
+                          <div class="list-row__content">
+                              <span>Single-line item</span>
+                          </div>
+                      </li>
+                      <li class="list-row list-row--has-separator">
+                          <div class="list-row__primary">
+                              <i class="icon icon--s icon--grey icon--flat mdi mdi-bell"></i>
+                          </div>
+
+                          <div class="list-row__content">
+                              <span>Single-line item</span>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              </div>
+            </lx-tab>
+
+            <lx-tab heading="Bands Table">
+              <div ng-controller="TableCtrl">
+                <div class="data-table-container">
+                    <table class="data-table data-table--has-primary data-table--has-secondary">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th><b>Band</b></th>
+                                <th><b>Singer</b></th>
+                                <th><b>Style</b></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colspan="4" class="divider divider--dark"></td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr class="data-table__clickable-row" ng-repeat="band in bands">
+                                <td>
+                                    <img src="assets/img/{{band.photo}}" />
+                                </td>
+                                <td>
+                                    <span>{{band.name}}</span>
+                                </td>
+                                <td>
+                                    <span>{{band.singer}}</span>
+                                </td>
+                                <td>
+                                    <span>{{band.style}}</span>
+                                </td>
+                                <td>
+                                    <lx-dropdown position="right" from-top>
+                                        <button class="btn btn--l btn--black btn--icon" lx-ripple lx-dropdown-toggle>
+                                            <i class="mdi mdi-dots-vertical"></i>
+                                        </button>
+
+                                        <lx-dropdown-menu>
+                                            <ul>
+                                                <li><a class="dropdown-link">Download</a></li>
+                                                <li><a class="dropdown-link">Show Disc</a></li>
+                                            </ul>
+                                        </lx-dropdown-menu>
+                                    </lx-dropdown>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+            </lx-tab>
+        </lx-tabs>
+
+    </div>
+
+
+
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/velocity/velocity.js"></script>
+    <script src="../bower_components/moment/min/moment-with-locales.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/lumx/dist/lumx.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
